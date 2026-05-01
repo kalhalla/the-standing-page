@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#F2EDE0">
+
+<title>The Standing Page</title>
+<meta name="description" content="The thinking person's alternative to doomscrolling. Five plates, two minutes, fresh at midnight.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Standing Page">
+<meta property="og:description" content="The thinking person's alternative to doomscrolling. Five plates, two minutes, fresh at midnight.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thestandingpage.com">
+<meta property="og:site_name" content="The Standing Page">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Standing Page">
+<meta name="twitter:description" content="The thinking person's alternative to doomscrolling. Five plates, two minutes, fresh at midnight.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400,0;9..144,500,30;9..144,700,30;9..144,900,0&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --paper:      #F2EDE0;
+  --paper-deep: #EAE2CE;
+  --ink:        #1C1A17;
+  --ink-soft:   #5A554C;
+  --ink-faint:  #B5AB97;
+  --rule:       #C8BFA9;
+  --red:        #B8392E;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Fraunces', Georgia, serif;
+  min-height: 100vh;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 22px 36px;
+  max-width: 620px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 100dvh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle at 25% 20%, rgba(28,26,23,0.018), transparent 50%),
+    radial-gradient(circle at 75% 80%, rgba(28,26,23,0.018), transparent 50%);
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+/* ===== TOP STRAP ===== */
+.top-strap {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 4px;
+}
+
+/* ===== MASTHEAD ===== */
+.masthead {
+  text-align: center;
+  width: 100%;
+  padding: 32px 0 24px;
+  border-bottom: 3px double var(--ink);
+}
+
+.masthead-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.34em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.masthead-kicker em {
+  font-style: italic;
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin: 0 6px;
+}
+
+.masthead h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: clamp(46px, 13vw, 78px);
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+  font-variation-settings: "SOFT" 0, "opsz" 144;
+}
+.masthead h1 .the {
+  display: block;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.4em;
+  letter-spacing: 0;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+}
+
+.masthead .tagline {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-top: 14px;
+}
+
+/* ===== ASTERISM ===== */
+.asterism {
+  font-family: 'Fraunces', serif;
+  font-size: 14px;
+  color: var(--ink-faint);
+  letter-spacing: 0.4em;
+  margin: 30px 0 24px;
+  user-select: none;
+}
+
+/* ===== HEADLINE ===== */
+.notice-head {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.notice-head .kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.notice-head h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: clamp(28px, 7vw, 38px);
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  font-variation-settings: "SOFT" 0, "opsz" 144;
+}
+
+/* ===== PROSE ===== */
+.prose {
+  max-width: 480px;
+  text-align: center;
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0 auto 22px;
+  padding: 0 4px;
+}
+.prose p {
+  margin-bottom: 14px;
+}
+.prose p:last-child { margin-bottom: 0; }
+.prose em {
+  font-style: italic;
+  color: var(--ink);
+}
+.prose .lead-italic {
+  font-style: italic;
+  font-size: 18px;
+  color: var(--ink);
+}
+
+/* ===== SAMPLE PLATE PREVIEW ===== */
+.sample {
+  margin: 28px auto 24px;
+  width: 100%;
+  max-width: 460px;
+  padding: 18px 18px 16px;
+  background: var(--paper-deep);
+  border: 1.5px solid var(--ink);
+  position: relative;
+}
+.sample-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+.sample-sentence {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--ink);
+  text-align: center;
+  margin-bottom: 14px;
+  padding: 4px 8px;
+}
+.sample-prompt {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-bottom: 4px;
+}
+.sample-question {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: -0.01em;
+  font-variation-settings: "SOFT" 0, "opsz" 144;
+}
+
+/* ===== CONTENTS PROMISE ===== */
+.contents-promise {
+  width: 100%;
+  max-width: 460px;
+  margin: 6px auto 28px;
+}
+.contents-promise .heading {
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+.plate-line {
+  display: grid;
+  grid-template-columns: 32px 1fr auto;
+  gap: 12px;
+  align-items: baseline;
+  padding: 10px 6px;
+  border-bottom: 1px solid var(--rule);
+}
+.plate-line:last-child { border-bottom: none; }
+.plate-line .num {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink);
+  font-variation-settings: "SOFT" 0, "opsz" 144;
+}
+.plate-line .name {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  font-variation-settings: "SOFT" 0, "opsz" 144;
+}
+.plate-line .name .desc {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-left: 6px;
+  letter-spacing: 0;
+}
+.plate-line .when {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* ===== EMAIL FORM ===== */
+.signup {
+  width: 100%;
+  max-width: 460px;
+  margin: 8px auto 24px;
+  padding: 18px 16px 20px;
+  text-align: center;
+  border: 1.5px solid var(--ink);
+}
+.signup .heading {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.signup .body {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-bottom: 14px;
+  line-height: 1.45;
+}
+.signup-form {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+}
+.signup-form input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: 'Fraunces', serif;
+  font-size: 14px;
+  padding: 11px 12px;
+  color: var(--ink);
+  outline: none;
+}
+.signup-form input::placeholder {
+  color: var(--ink-faint);
+  font-style: italic;
+}
+.signup-form button {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 700;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  padding: 0 16px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.signup-form button:hover { opacity: 0.85; }
+.signup-msg {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 10px;
+  min-height: 18px;
+}
+.signup-msg.success { color: var(--ink); }
+
+/* ===== COLOPHON ===== */
+.colophon {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 3px double var(--ink);
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  line-height: 1.7;
+}
+.colophon .row { margin-bottom: 4px; }
+.colophon .row em {
+  font-style: italic;
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+.colophon a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.colophon a:hover { color: var(--ink); }
+
+@media (max-width: 380px) {
+  .prose { font-size: 16px; }
+  .sample-sentence { font-size: 15px; }
+}
+</style>
+</head>
+<body>
+
+<main>
+
+  <div class="top-strap">
+    <span>Vol · I</span>
+    <span>Forthcoming</span>
+    <span>Free</span>
+  </div>
+
+  <!-- MASTHEAD -->
+  <div class="masthead">
+    <div class="masthead-kicker">No. I <em>·</em> a daily edition <em>·</em> in preparation</div>
+    <h1><span class="the">The</span>Standing Page</h1>
+    <div class="tagline">A daily edition, set in standing type.</div>
+  </div>
+
+  <div class="asterism">✻ &nbsp; ✻ &nbsp; ✻</div>
+
+  <!-- HEADLINE -->
+  <div class="notice-head">
+    <div class="kicker">A Notice to the Reader</div>
+    <h2>The thinking person's<br>alternative to doomscrolling.</h2>
+  </div>
+
+  <!-- PROSE -->
+  <div class="prose">
+    <p class="lead-italic">Five plates. Two minutes. Fresh at midnight.</p>
+
+    <p>The Standing Page is a daily publication of small games — a sentence to place in time, a number to find the right context for, a market to call higher or lower. Each plate is a short puzzle in the editorial-almanac tradition. They sit under one masthead because they share an editor, a voice, and a belief about what a phone can be at midnight.</p>
+
+    <p>We do not want your evening. We want exactly the two minutes between brushing your teeth and turning out the lamp, returned to you slightly less stupid than you began.</p>
+
+    <p>No advertisements. No accounts. No algorithms. Nothing to install.</p>
+  </div>
+
+  <!-- SAMPLE PLATE -->
+  <div class="sample">
+    <div class="sample-label">A specimen of Plate II</div>
+    <div class="sample-sentence">&ldquo;In the first place, Cranford is in possession of the Amazons; all the holders of houses above a certain rent are women.&rdquo;</div>
+    <div class="sample-prompt">— in what year was this written?</div>
+  </div>
+
+  <!-- CONTENTS PROMISE -->
+  <div class="contents-promise">
+    <div class="heading">The Plates, in order of issue</div>
+
+    <div class="plate-line">
+      <span class="num">I.</span>
+      <span class="name">The Line<span class="desc">— call the market higher or lower</span></span>
+      <span class="when">Plate I</span>
+    </div>
+    <div class="plate-line">
+      <span class="num">II.</span>
+      <span class="name">The Year<span class="desc">— place a sentence in time</span></span>
+      <span class="when">Plate II</span>
+    </div>
+    <div class="plate-line">
+      <span class="num">III.</span>
+      <span class="name">The Figure<span class="desc">— one number, three contexts</span></span>
+      <span class="when">to follow</span>
+    </div>
+    <div class="plate-line">
+      <span class="num">IV.</span>
+      <span class="name">The Misnomer<span class="desc">— two real, one invented</span></span>
+      <span class="when">to follow</span>
+    </div>
+    <div class="plate-line">
+      <span class="num">V.</span>
+      <span class="name">The Order<span class="desc">— two events, which came first</span></span>
+      <span class="when">to follow</span>
+    </div>
+  </div>
+
+  <!-- SIGNUP -->
+  <div class="signup">
+    <div class="heading">A Reader's Notice</div>
+    <div class="body">Leave an address and the editor will write once, on the morning the publication opens.</div>
+    <form class="signup-form" id="signup-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST">
+      <input type="email" name="email" placeholder="your email" required>
+      <button type="submit">Notify Me</button>
+    </form>
+    <div class="signup-msg" id="signup-msg"></div>
+  </div>
+
+  <!-- COLOPHON -->
+  <div class="colophon">
+    <div class="row">The Standing Page <em>·</em> a publication in the editorial-almanac tradition</div>
+    <div class="row">Vol <em>·</em> I &nbsp; — &nbsp; in preparation &nbsp; — &nbsp; MMXXVI</div>
+    <div class="row" style="margin-top:8px">
+      <a href="https://x.com/standingpage" target="_blank" rel="noopener">@standingpage</a>
+    </div>
+  </div>
+
+</main>
+
+<script>
+// Lightweight signup form handler — graceful fallback.
+// To activate: sign up at formspree.io (free 50/month), replace REPLACE_WITH_YOUR_ID
+// in the action attribute above with your form ID.
+const form = document.getElementById('signup-form');
+const msg  = document.getElementById('signup-msg');
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const action = form.getAttribute('action');
+  // If form not yet wired, store locally and show graceful message.
+  if (action.includes('REPLACE_WITH_YOUR_ID')) {
+    const email = form.email.value;
+    try {
+      const list = JSON.parse(localStorage.getItem('standingpage_waitlist') || '[]');
+      if (!list.includes(email)) list.push(email);
+      localStorage.setItem('standingpage_waitlist', JSON.stringify(list));
+    } catch(e) {}
+    msg.textContent = 'noted — the editor will be in touch.';
+    msg.classList.add('success');
+    form.reset();
+    return;
+  }
+  // Real submission to Formspree
+  try {
+    const res = await fetch(action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      msg.textContent = 'noted — the editor will write once, on opening.';
+      msg.classList.add('success');
+      form.reset();
+    } else {
+      msg.textContent = 'something amiss. try again in a moment.';
+    }
+  } catch (err) {
+    msg.textContent = 'something amiss. try again in a moment.';
+  }
+});
+</script>
+
+</body>
+</html>
