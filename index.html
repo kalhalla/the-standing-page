@@ -3,14 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#F2EDE0">
+<meta name="theme-color" content="#FBF8EE">
+<meta name="color-scheme" content="light dark">
 
 <title>The Standing Page</title>
-<meta name="description" content="The thinking person's alternative to doomscrolling. Five plates, two minutes, fresh at midnight.">
+<meta name="description" content="Five plates. Two minutes. Daily. A publication of small games in the editorial-almanac tradition.">
 
 <!-- Open Graph -->
 <meta property="og:title" content="The Standing Page">
-<meta property="og:description" content="The thinking person's alternative to doomscrolling. Five plates, two minutes, fresh at midnight.">
+<meta property="og:description" content="Five plates. Two minutes. Daily. A publication of small games in the editorial-almanac tradition.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://thestandingpage.com">
 <meta property="og:site_name" content="The Standing Page">
@@ -18,7 +19,7 @@
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Standing Page">
-<meta name="twitter:description" content="The thinking person's alternative to doomscrolling. Five plates, two minutes, fresh at midnight.">
+<meta name="twitter:description" content="Five plates. Two minutes. Daily. A publication of small games in the editorial-almanac tradition.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,13 +27,31 @@
 
 <style>
 :root {
-  --paper:      #F2EDE0;
-  --paper-deep: #EAE2CE;
+  color-scheme: light dark;
+  --paper:      #FBF8EE;
+  --paper-deep: #F4EEDD;
   --ink:        #1C1A17;
   --ink-soft:   #5A554C;
   --ink-faint:  #B5AB97;
   --rule:       #C8BFA9;
   --red:        #B8392E;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:      #1A1816;
+    --paper-deep: #232019;
+    --ink:        #ECE5D2;
+    --ink-soft:   #A89F8B;
+    --ink-faint:  #6B6357;
+    --rule:       #3A352D;
+    --red:        #E8736A;
+  }
+  body::before {
+    background-image:
+      radial-gradient(circle at 25% 20%, rgba(236,229,210,0.025), transparent 50%),
+      radial-gradient(circle at 75% 80%, rgba(236,229,210,0.025), transparent 50%);
+  }
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -311,6 +330,36 @@ main {
   text-transform: uppercase;
   color: var(--ink-faint);
 }
+a.plate-line {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: background 0.15s, padding 0.15s;
+}
+a.plate-line:hover {
+  background: var(--paper-deep);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.plate-line .when-live {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+  transition: color 0.15s;
+}
+a.plate-line:hover .when-live { color: var(--red); }
+.contents-promise .heading-sub {
+  text-align: center;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin: -8px 0 12px;
+}
 
 /* ===== EMAIL FORM ===== */
 .signup {
@@ -431,7 +480,7 @@ main {
   <div class="masthead">
     <div class="masthead-kicker">No. I <em>·</em> a daily edition <em>·</em> in preparation</div>
     <h1><span class="the">The</span>Standing Page</h1>
-    <div class="tagline">A daily edition, set in standing type.</div>
+    <div class="tagline">Five plates. Two minutes. Daily.</div>
   </div>
 
   <div class="asterism">✻ &nbsp; ✻ &nbsp; ✻</div>
@@ -439,14 +488,14 @@ main {
   <!-- HEADLINE -->
   <div class="notice-head">
     <div class="kicker">A Notice to the Reader</div>
-    <h2>The thinking person's<br>alternative to doomscrolling.</h2>
+    <h2>A daily edition,<br>in five plates.</h2>
   </div>
 
   <!-- PROSE -->
   <div class="prose">
     <p class="lead-italic">Five plates. Two minutes. Fresh at midnight.</p>
 
-    <p>The Standing Page is a daily publication of small games — a sentence to place in time, a number to find the right context for, a market to call higher or lower. Each plate is a short puzzle in the editorial-almanac tradition. They sit under one masthead because they share an editor, a voice, and a belief about what a phone can be at midnight.</p>
+    <p>The Standing Page is a daily publication of small games — a passage with a missing word, a sentence to place in time, a number to find the right context for. Each plate is a short puzzle in the editorial-almanac tradition. They sit under one masthead because they share an editor, a voice, and a belief about what a phone can be at midnight.</p>
 
     <p>We do not want your evening. We want exactly the two minutes between brushing your teeth and turning out the lamp, returned to you slightly less stupid than you began.</p>
 
@@ -456,34 +505,35 @@ main {
   <!-- SAMPLE PLATE -->
   <div class="sample">
     <div class="sample-label">A specimen of Plate II</div>
-    <div class="sample-sentence">&ldquo;In the first place, Cranford is in possession of the Amazons; all the holders of houses above a certain rent are women.&rdquo;</div>
+    <div class="sample-sentence">&ldquo;It was a Monday in early September, and he was returning to his work from a hurried dip into the country; but what was Miss Bart doing in town at that season?&rdquo;</div>
     <div class="sample-prompt">— in what year was this written?</div>
   </div>
 
   <!-- CONTENTS PROMISE -->
   <div class="contents-promise">
     <div class="heading">The Plates, in order of issue</div>
+    <div class="heading-sub">Three open today. Two forthcoming.</div>
 
-    <div class="plate-line">
+    <a class="plate-line" href="/plate-i.html">
       <span class="num">I.</span>
-      <span class="name">The Line<span class="desc">— call the market higher or lower</span></span>
-      <span class="when">Plate I</span>
-    </div>
-    <div class="plate-line">
+      <span class="name">The Reading<span class="desc">— supply the missing word</span></span>
+      <span class="when when-live">Read &rsaquo;</span>
+    </a>
+    <a class="plate-line" href="/plate-ii.html">
       <span class="num">II.</span>
       <span class="name">The Year<span class="desc">— place a sentence in time</span></span>
-      <span class="when">Plate II</span>
-    </div>
+      <span class="when when-live">Read &rsaquo;</span>
+    </a>
     <div class="plate-line">
       <span class="num">III.</span>
       <span class="name">The Figure<span class="desc">— one number, three contexts</span></span>
       <span class="when">to follow</span>
     </div>
-    <div class="plate-line">
+    <a class="plate-line" href="/plate-iv.html">
       <span class="num">IV.</span>
-      <span class="name">The Misnomer<span class="desc">— two real, one invented</span></span>
-      <span class="when">to follow</span>
-    </div>
+      <span class="name">The Ladder<span class="desc">— five things, in their right order</span></span>
+      <span class="when when-live">Read &rsaquo;</span>
+    </a>
     <div class="plate-line">
       <span class="num">V.</span>
       <span class="name">The Order<span class="desc">— two events, which came first</span></span>

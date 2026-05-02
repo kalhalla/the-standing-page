@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#FBF8EE">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Plate I — The Reading. A passage with a missing word. Supply it. The Standing Page.">
+<title>Plate I · The Reading — The Standing Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400,0;9..144,500,30;9..144,700,30;9..144,900,0&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   THE STANDING PAGE · Plate I — The Reading
+   Single-file prototype, slottable into the shell.
+   Lighter cream paper. Ink black. One paper-red accent.
+   ============================================================ */
+:root {
+  color-scheme: light dark;
+  --paper:      #FBF8EE;
+  --paper-deep: #F4EEDD;
+  --ink:        #1C1A17;
+  --ink-soft:   #5A554C;
+  --ink-faint:  #B5AB97;
+  --rule:       #C8BFA9;
+  --red:        #B8392E;
+  --green:      #4A6B3A;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:      #1A1816;
+    --paper-deep: #232019;
+    --ink:        #ECE5D2;
+    --ink-soft:   #A89F8B;
+    --ink-faint:  #6B6357;
+    --rule:       #3A352D;
+    --red:        #E8736A;
+    --green:      #8FB37A;
+  }
+  body::before {
+    background-image:
+      radial-gradient(circle at 25% 20%, rgba(236,229,210,0.025), transparent 50%),
+      radial-gradient(circle at 75% 80%, rgba(236,229,210,0.025), transparent 50%);
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Fraunces', Georgia, serif;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 16px 24px;
+  max-width: 560px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 100dvh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle at 25% 20%, rgba(28,26,23,0.018), transparent 50%),
+    radial-gradient(circle at 75% 80%, rgba(28,26,23,0.018), transparent 50%);
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+}
+
+/* ===== TOP STRAP ===== */
+.top-strap {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--rule);
+}
+.top-strap a { color: var(--ink-soft); text-decoration: none; }
+.top-strap a:hover { color: var(--ink); }
+
+/* ===== COMPACT MASTHEAD ===== */
+.masthead {
+  text-align: center;
+  padding: 10px 0 8px;
+  border-bottom: 1px solid var(--rule);
+}
+.masthead .pub-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  font-variation-settings: "SOFT" 0, "opsz" 144;
+  color: var(--ink);
+}
+.masthead .pub-name .the {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-soft);
+  font-size: 14px;
+  margin-right: 1px;
+}
+.masthead .pub-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ===== PLATE LABEL ===== */
+.plate-label {
+  text-align: center;
+  margin: 22px 0 14px;
+}
+.plate-label .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.34em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.plate-label h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: clamp(48px, 13vw, 68px);
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+  font-variation-settings: "SOFT" 0, "opsz" 144;
+}
+.plate-label h1 .the {
+  display: block;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.36em;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+  letter-spacing: 0;
+}
+.plate-label .prompt {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-top: 8px;
+}
+
+/* ===== SUBHEAD ===== */
+.subhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  padding: 0 2px 8px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 18px;
+}
+.subhead .left { color: var(--ink); font-weight: 700; }
+.subhead .streak.hot { color: var(--red); }
+
+/* ===== MODE TOGGLE ===== */
+.mode-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-bottom: 18px;
+  border: 1px solid var(--ink);
+}
+.mode-tab {
+  background: transparent;
+  border: none;
+  padding: 9px 8px;
+  cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  transition: background 0.15s, color 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.mode-tab + .mode-tab { border-left: 1px solid var(--ink); }
+.mode-tab.active { background: var(--ink); color: var(--paper); }
+.mode-tab .meta {
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  opacity: 0.75;
+}
+
+/* ===== ASTERISM ===== */
+.asterism {
+  text-align: center;
+  font-family: 'Fraunces', serif;
+  font-size: 14px;
+  color: var(--ink-faint);
+  letter-spacing: 0.4em;
+  margin: 6px 0 14px;
+  user-select: none;
+}
+
+/* ===== FIG TITLE ===== */
+.fig-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+/* ===== PASSAGE FRAME ===== */
+.passage-frame {
+  background: var(--paper-deep);
+  border: 1.5px solid var(--ink);
+  padding: 28px 22px 24px;
+  margin-bottom: 4px;
+  position: relative;
+}
+.passage-frame .quote-mark {
+  position: absolute;
+  top: 0;
+  left: 12px;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 60px;
+  color: var(--ink-faint);
+  line-height: 1;
+  user-select: none;
+}
+.passage-text {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  text-align: center;
+}
+.blank {
+  display: inline-block;
+  vertical-align: baseline;
+  min-width: 90px;
+  border-bottom: 2px solid var(--ink);
+  height: 1.4em;
+  line-height: 1.4em;
+  margin: 0 3px;
+  position: relative;
+  top: 1px;
+  font-style: normal;
+  text-align: center;
+}
+.blank.scored {
+  border-bottom: 2.5px solid var(--ink);
+}
+.blank.filled {
+  border-bottom: none;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--ink);
+  font-variation-settings: "SOFT" 0, "opsz" 144;
+  min-width: 0;
+  padding: 0 6px;
+  background: transparent;
+}
+.blank.filled.user-wrong {
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink-soft);
+  text-decoration: line-through;
+  text-decoration-color: var(--ink-faint);
+  text-decoration-thickness: 1px;
+}
+.blank.filled.canonical {
+  color: var(--ink);
+  font-weight: 700;
+}
+.passage-corner {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: right;
+  margin-top: 14px;
+  padding-top: 8px;
+  border-top: 1px solid var(--rule);
+}
+
+/* ===== INPUT ===== */
+.reading-input-wrap {
+  margin: 22px auto 14px;
+  max-width: 360px;
+  text-align: center;
+}
+.reading-input-label {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+.reading-input {
+  width: 100%;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 26px;
+  text-align: center;
+  letter-spacing: -0.01em;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--ink);
+  color: var(--ink);
+  padding: 8px 8px 12px;
+  outline: none;
+  font-variation-settings: "SOFT" 0, "opsz" 144;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+.reading-input::placeholder {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-faint);
+  letter-spacing: 0;
+}
+.reading-input:focus {
+  border-bottom-color: var(--ink);
+}
+.reading-input-helper {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: 8px;
+}
+
+/* ===== COMMIT ===== */
+.commit-btn {
+  display: block;
+  width: 100%;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 700;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1.5px solid var(--ink);
+  padding: 16px 12px;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background 0.15s, color 0.15s, opacity 0.15s;
+}
+.commit-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.commit-btn:not(:disabled):hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* ===== REVEAL ===== */
+.reveal {
+  display: none;
+  margin-top: 14px;
+}
+.reveal.show { display: block; }
+
+.reveal .rule-top {
+  text-align: center;
+  font-family: 'Fraunces', serif;
+  font-size: 14px;
+  color: var(--ink-faint);
+  letter-spacing: 0.4em;
+  margin: 4px 0 14px;
+}
+
+.reveal-words {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  margin-bottom: 12px;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: fadeUp 0.45s ease 0.05s forwards;
+}
+.reveal-words .your-word,
+.reveal-words .actual-word {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: clamp(22px, 6.5vw, 32px);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  font-variation-settings: "SOFT" 0, "opsz" 144;
+  word-break: break-word;
+}
+.reveal-words .your-word { color: var(--ink-soft); }
+.reveal-words .your-word.empty { font-style: italic; font-weight: 400; color: var(--ink-faint); font-size: 18px; }
+.reveal-words .actual-word { color: var(--ink); font-style: italic; }
+.reveal-words .arrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: var(--ink-faint);
+  letter-spacing: 0.1em;
+}
+.reveal-words .small-label {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 4px;
+}
+
+.reveal-distance {
+  text-align: center;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--ink);
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: fadeIn 0.4s ease 0.35s forwards;
+  padding: 0 12px;
+  line-height: 1.4;
+}
+
+.reveal-stars {
+  text-align: center;
+  margin-bottom: 6px;
+  opacity: 0;
+  animation: fadeIn 0.45s ease 0.6s forwards;
+}
+.reveal-stars .stars {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  line-height: 1;
+}
+.reveal-stars .stars .empty { color: var(--ink-faint); }
+.reveal-stars .caption {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+.reveal-stars.miss .stars { color: var(--red); font-size: 22px; letter-spacing: 0.16em; }
+.reveal-stars.miss .caption { color: var(--red); }
+
+.reveal-source {
+  text-align: center;
+  margin: 18px 0 10px;
+  padding: 12px 8px 0;
+  border-top: 1px solid var(--rule);
+  opacity: 0;
+  animation: fadeIn 0.45s ease 0.85s forwards;
+}
+.reveal-source .source-line {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: -0.005em;
+}
+.reveal-source .source-line .work { font-style: italic; font-weight: 400; }
+.reveal-source .source-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+.reveal-source .source-meta a { color: var(--ink-soft); text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 2px; }
+.reveal-source .source-meta a:hover { color: var(--ink); }
+
+.reveal-footnote {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  padding: 10px 4px 0;
+  text-align: left;
+  opacity: 0;
+  animation: fadeIn 0.5s ease 1.05s forwards;
+}
+.reveal-footnote .dagger {
+  color: var(--ink);
+  font-weight: 700;
+  font-style: normal;
+  margin-right: 4px;
+}
+
+.reveal-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+  opacity: 0;
+  animation: fadeIn 0.4s ease 1.25s forwards;
+}
+.reveal-actions button {
+  flex: 1;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 700;
+  background: transparent;
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+  padding: 12px 6px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.reveal-actions button:hover { background: var(--ink); color: var(--paper); }
+.reveal-actions button.primary { background: var(--ink); color: var(--paper); }
+.reveal-actions button.primary:hover { background: var(--paper); color: var(--ink); }
+
+/* ===== TOAST ===== */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 10px 16px;
+  z-index: 99;
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: none;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ===== FOOTER ===== */
+.footer-rule {
+  margin-top: 24px;
+  padding-top: 12px;
+  border-top: 3px double var(--ink);
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+
+/* ===== DEV BUTTON ===== */
+.dev-btn {
+  position: fixed;
+  bottom: 6px;
+  right: 6px;
+  z-index: 999;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--ink-faint);
+  border: 1px dashed var(--ink-faint);
+  padding: 3px 6px;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 0.15s, color 0.15s, border-color 0.15s;
+}
+.dev-btn:hover { opacity: 1; color: var(--ink); border-color: var(--ink); }
+
+/* ===== PROTOTYPE STAMP ===== */
+.proto-stamp {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--red);
+  border: 1px dashed var(--red);
+  padding: 4px 7px;
+  background: var(--paper);
+  z-index: 10;
+  opacity: 0.7;
+}
+
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { to { opacity: 1; } }
+
+@media (max-width: 380px) {
+  .passage-text { font-size: 17px; line-height: 1.55; }
+  .blank { min-width: 70px; }
+  .reading-input { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+<div class="proto-stamp">prototype · v1</div>
+
+<main>
+
+  <!-- TOP STRAP -->
+  <div class="top-strap">
+    <a href="/">‹ today's edition</a>
+    <span id="strap-issue">No. CXXI</span>
+  </div>
+
+  <!-- COMPACT MASTHEAD -->
+  <div class="masthead">
+    <div class="pub-name"><span class="the">The</span>Standing Page</div>
+    <div class="pub-tag">five plates · two minutes · daily</div>
+  </div>
+
+  <!-- PLATE LABEL -->
+  <div class="plate-label">
+    <div class="num">Plate I <span style="color:var(--ink-faint)">·</span> of V</div>
+    <h1><span class="the">The</span>Reading</h1>
+    <div class="prompt">A passage with a missing word. Read it carefully.</div>
+  </div>
+
+  <!-- SUBHEAD -->
+  <div class="subhead">
+    <span class="left" id="subhead-left">Daily · No. CXXI</span>
+    <span>Streak <span id="streak-num" class="streak">0</span> · Best <span id="streak-pb">0</span></span>
+  </div>
+
+  <!-- MODE TOGGLE -->
+  <div class="mode-toggle">
+    <button class="mode-tab active" id="tab-daily" data-mode="daily">
+      Daily
+      <span class="meta">today's reading</span>
+    </button>
+    <button class="mode-tab" id="tab-endless" data-mode="endless">
+      Endless
+      <span class="meta">practice run</span>
+    </button>
+  </div>
+
+  <!-- FIG TITLE -->
+  <div class="fig-title">Fig. I — A Passage</div>
+
+  <!-- PASSAGE -->
+  <div class="passage-frame">
+    <span class="quote-mark">&ldquo;</span>
+    <div class="passage-text" id="passage-text"></div>
+    <div class="passage-corner" id="passage-corner">unattributed until reveal</div>
+  </div>
+
+  <!-- ASTERISM -->
+  <div class="asterism" style="margin-top:14px">✻ &nbsp; ✻ &nbsp; ✻</div>
+
+  <!-- INPUT -->
+  <div class="reading-input-wrap" id="input-wrap">
+    <div class="reading-input-label">supply the missing word</div>
+    <input
+      type="text"
+      class="reading-input"
+      id="reading-input"
+      placeholder="…"
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      spellcheck="false"
+      maxlength="40"
+    >
+    <div class="reading-input-helper" id="input-helper">tap to type</div>
+  </div>
+
+  <!-- COMMIT -->
+  <button class="commit-btn" id="commit-btn" disabled>Commit the Reading</button>
+
+  <!-- REVEAL -->
+  <div class="reveal" id="reveal">
+    <div class="rule-top">✻ &nbsp; ✻ &nbsp; ✻</div>
+
+    <div class="reveal-words">
+      <div>
+        <span class="small-label">your word</span>
+        <span class="your-word" id="rev-your">—</span>
+      </div>
+      <div class="arrow">→</div>
+      <div>
+        <span class="small-label">written</span>
+        <span class="actual-word" id="rev-actual">—</span>
+      </div>
+    </div>
+
+    <div class="reveal-distance" id="rev-distance">—</div>
+
+    <div class="reveal-stars" id="rev-stars">
+      <div class="stars" id="rev-star-glyphs">— — — —</div>
+      <div class="caption" id="rev-caption">—</div>
+    </div>
+
+    <div class="reveal-source">
+      <div class="source-line" id="rev-source">—</div>
+      <div class="source-meta">
+        <a id="rev-url" href="#" target="_blank" rel="noopener">verify on Project Gutenberg</a>
+      </div>
+    </div>
+
+    <div class="reveal-footnote">
+      <span class="dagger">†</span><span id="rev-footnote">—</span>
+    </div>
+
+    <div class="reveal-actions">
+      <button id="btn-share">Share</button>
+      <button id="btn-next" class="primary">Next</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-rule" id="footer-rule">
+    one passage · everyone reads it · a fresh reading at midnight
+  </div>
+
+</main>
+
+<div class="toast" id="toast">copied</div>
+<button class="dev-btn" id="btn-dev" title="reset">DEV · RESET</button>
+
+<script>
+// ============================================================
+// PLATE I — THE READING · prototype
+// ------------------------------------------------------------
+// Passage data: each entry has a `template` containing one or
+// more `___` markers (three underscores). All blanks within a
+// passage are filled with the same canonical answer on reveal.
+// The reader supplies the word once.
+//
+// `verified: true` — wording confirmed against primary source.
+// `verified: false` — high-confidence canonical pull pending
+// final verification before live ship.
+// ============================================================
+
+const PASSAGES = [
+  {
+    template: "Mr and Mrs Veneering were ___ people in a ___ house in a ___ quarter of London.",
+    answer: "bran-new",
+    accept: ["fresh", "novel", "modern", "newfangled"],
+    year: 1865,
+    work: "Our Mutual Friend",
+    author: "Charles Dickens",
+    url: "https://www.gutenberg.org/files/883/883-h/883-h.htm",
+    footnote: "From Dickens's last completed novel, Book the First, Chapter 2. The Veneerings collect their friends and their furniture by the same method. Dickens spelled the word 'bran-new' — an older form, in his time already on its way out.",
+    verified: true,
+  },
+  {
+    template: "In the first place, Cranford is in possession of the ___; all the holders of houses above a certain rent are women.",
+    answer: "Amazons",
+    accept: ["women", "ladies", "matrons"],
+    year: 1853,
+    work: "Cranford",
+    author: "Elizabeth Gaskell",
+    url: "https://www.gutenberg.org/files/394/394-h/394-h.htm",
+    footnote: "The opening line, first serialised in Dickens's Household Words, December 1851 to May 1853. Gaskell's choice of 'Amazons' for the women of Cranford is a small joke, since most of them are widows of moderate means rather than warriors.",
+    verified: true,
+  },
+  {
+    template: "There I was struck on the shoulder by a ___ bullet, which shattered the bone and grazed the subclavian artery.",
+    answer: "Jezail",
+    accept: ["Afghan", "musket", "rifle"],
+    year: 1887,
+    work: "A Study in Scarlet",
+    author: "Arthur Conan Doyle",
+    url: "https://www.gutenberg.org/files/244/244-h/244-h.htm",
+    footnote: "Watson's account of his wounding at the Battle of Maiwand, 27 July 1880. A Jezail was a long-barrelled muzzle-loading musket favoured by Afghan tribesmen, accurate at considerable range. Conan Doyle later relocates the wound from shoulder to leg; the inconsistency is among the most-debated trifles in the canon.",
+    verified: true,
+  },
+  {
+    template: "The Time Traveller (for so it will be convenient to speak of him) was expounding a ___ matter to us.",
+    answer: "recondite",
+    accept: ["obscure", "abstruse", "difficult", "complex"],
+    year: 1895,
+    work: "The Time Machine",
+    author: "H. G. Wells",
+    url: "https://www.gutenberg.org/ebooks/35",
+    footnote: "Opening line. Wells's first published novel, expanded from a series of articles in the National Observer. 'Recondite' — meaning concealed, abstruse — places the Time Traveller's discourse safely above the heads of his dinner guests, which is precisely Wells's point.",
+    verified: false,
+  },
+  {
+    template: "It made no serious impression on any of us except my cousin\u2014whose love of the ___ induced him to believe it.",
+    answer: "marvellous",
+    accept: ["marvelous", "supernatural", "fantastic", "fanciful", "extraordinary", "miraculous"],
+    year: 1868,
+    work: "The Moonstone",
+    author: "Wilkie Collins",
+    url: "https://www.gutenberg.org/files/155/155-h/155-h.htm",
+    footnote: "From the prologue, narrated during the British siege of Seringapatam in 1799. Collins's novel \u2014 first serialised in Dickens's All the Year Round through 1868 \u2014 is widely held to be the earliest detective novel in English. T. S. Eliot called it the longest and the best of the kind.",
+    verified: true,
+  },
+  {
+    template: "He led her through the throng of returning holiday-makers, past sallow-faced girls in ___ hats, and flat-chested women struggling with paper bundles and palm-leaf fans.",
+    answer: "preposterous",
+    accept: ["ridiculous", "absurd", "ostentatious", "outlandish", "ludicrous", "extravagant"],
+    year: 1905,
+    work: "The House of Mirth",
+    author: "Edith Wharton",
+    url: "https://www.gutenberg.org/files/284/284-h/284-h.htm",
+    footnote: "Selden walks Lily Bart from Grand Central Station along Madison Avenue, past the women she does not wish to be counted among. Wharton's first major novel, published in 1905; she would later become the first woman to win the Pulitzer Prize for fiction, with The Age of Innocence in 1921.",
+    verified: true,
+  },
+  {
+    template: "\u201cWhen a man is tired of London, he is tired of life.\u201d \u2014 attributed to Dr ___, by his biographer.",
+    answer: "Johnson",
+    accept: ["Samuel Johnson", "Sam Johnson", "Dr Johnson"],
+    year: 1791,
+    work: "Life of Samuel Johnson",
+    author: "James Boswell",
+    url: "https://www.gutenberg.org/ebooks/1564",
+    footnote: "Recorded by Boswell as said in the autumn of 1777, near the end of Johnson's life. The full sentence runs: \u2018for there is in London all that life can afford.\u2019 Johnson was sixty-eight, had lived in the capital for forty years, and meant the line as praise rather than warning. Boswell's Life, published seven years after Johnson's death in 1791, remains the most quoted biography in the English language.",
+    verified: true,
+  },
+  {
+    template: "\u201cI can resist everything except temptation.\u201d \u2014 said by Lord Darlington, in a play by Oscar ___.",
+    answer: "Wilde",
+    accept: ["Oscar Wilde"],
+    year: 1892,
+    work: "Lady Windermere's Fan",
+    author: "Oscar Wilde",
+    url: "https://www.gutenberg.org/ebooks/790",
+    footnote: "Act One. Wilde's first commercial success on the London stage, opened at the St James's Theatre, February 1892. Lord Darlington is a dandy of the Wildean type \u2014 a man who exists chiefly to deliver epigrams. Three years later, the same theatre would mount The Importance of Being Earnest, the night before Wilde's life began to come apart.",
+    verified: true,
+  },
+  {
+    template: "\u201cYouth is wasted on the young.\u201d \u2014 commonly attributed to George Bernard ___.",
+    answer: "Shaw",
+    accept: ["George Bernard Shaw", "GB Shaw", "G B Shaw"],
+    year: 1931,
+    work: "attributed",
+    author: "George Bernard Shaw",
+    url: "https://en.wikiquote.org/wiki/George_Bernard_Shaw",
+    footnote: "There is no firm record of Shaw ever writing or saying these exact words. The earliest documented version, slightly different, appears in print in 1931, attributed to him without source. Shaw lived another nineteen years and never confirmed it. The quotation is now so woven into popular memory that the absence of evidence has stopped mattering \u2014 a common fate for aphorisms that capture something true.",
+    verified: false,
+  },
+  {
+    template: "\u201cThe reports of my death are greatly exaggerated.\u201d \u2014 telegraphed by Mark ___, from London.",
+    answer: "Twain",
+    accept: ["Mark Twain", "Samuel Clemens", "Clemens"],
+    year: 1897,
+    work: "letter to the New York Journal",
+    author: "Mark Twain",
+    url: "https://www.gutenberg.org/ebooks/3192",
+    footnote: "What Twain actually wrote, in a note to a London correspondent for the New York Journal in 1897, was: \u2018the report of my death was an exaggeration.\u2019 The line as commonly remembered \u2014 \u2018greatly exaggerated\u2019 \u2014 is a tidied-up version that has displaced the original in public memory. The misquotation is now famous in itself, an example of how quotations evolve toward what their speakers should have said.",
+    verified: true,
+  },
+];
+
+// ============================================================
+// MATCHER — the simple version
+// ------------------------------------------------------------
+// 1. Normalise both strings (lowercase, strip punctuation/spaces)
+// 2. Exact match on normalised form         → ★★★★
+// 3. Levenshtein distance ≤ 2                → ★★★
+// 4. Match against optional accept[] list    → ★★
+// 5. Otherwise                                → —
+// ============================================================
+
+function normalize(s) {
+  return (s || "").toLowerCase().trim().replace(/[^a-z0-9]/g, '');
+}
+
+function levenshtein(a, b) {
+  if (!a.length) return b.length;
+  if (!b.length) return a.length;
+  const m = [];
+  for (let i = 0; i <= b.length; i++) m[i] = [i];
+  for (let j = 0; j <= a.length; j++) m[0][j] = j;
+  for (let i = 1; i <= b.length; i++) {
+    for (let j = 1; j <= a.length; j++) {
+      m[i][j] = b[i-1] === a[j-1]
+        ? m[i-1][j-1]
+        : Math.min(m[i-1][j-1], m[i][j-1], m[i-1][j]) + 1;
+    }
+  }
+  return m[b.length][a.length];
+}
+
+function scoreReading(userInput, passage) {
+  if (!userInput || !userInput.trim()) {
+    return { stars: 0, tier: 'empty', caption: 'no reading' };
+  }
+  const u = normalize(userInput);
+  const a = normalize(passage.answer);
+
+  if (u === a) {
+    return { stars: 4, tier: 'exact', caption: 'the very word' };
+  }
+  const dist = levenshtein(u, a);
+  if (dist <= 2) {
+    return { stars: 3, tier: 'close', caption: 'the right sense', distance: dist };
+  }
+  if (passage.accept) {
+    for (const alt of passage.accept) {
+      if (normalize(alt) === u) {
+        return { stars: 2, tier: 'near', caption: 'in the neighbourhood' };
+      }
+    }
+  }
+  return { stars: 0, tier: 'miss', caption: 'another reading' };
+}
+
+// ============================================================
+// STATE
+// ============================================================
+
+const STORAGE_KEY = 'standingpage_plate_i';
+
+const defaultState = {
+  streak: 0,
+  pb: 0,
+  daily: { dateKey: null, dayNum: null, status: 'fresh', guess: null, answer: null, stars: null, passageIdx: null },
+  endless: { runStars: [], pos: 0 },
+};
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return JSON.parse(JSON.stringify(defaultState));
+    const s = JSON.parse(raw);
+    return Object.assign(JSON.parse(JSON.stringify(defaultState)), s);
+  } catch (e) {
+    return JSON.parse(JSON.stringify(defaultState));
+  }
+}
+function saveState() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
+let state = loadState();
+let mode = 'daily';
+let currentPassage = null;
+let currentPassageIdx = 0;
+let phase = 'fresh';   // fresh | typing | committed | revealed
+let lastUserAnswer = '';
+let lastScore = null;
+
+// ============================================================
+// DAILY SEED
+// ============================================================
+
+function dayNumber() {
+  const start = new Date(Date.UTC(2026, 0, 1));
+  const now   = new Date();
+  const today = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+  return Math.max(0, Math.floor((today - start) / 86400000));
+}
+function todayKey() {
+  const d = new Date();
+  return d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');
+}
+function romanise(n) {
+  const map = [[1000,'M'],[900,'CM'],[500,'D'],[400,'CD'],[100,'C'],[90,'XC'],[50,'L'],[40,'XL'],[10,'X'],[9,'IX'],[5,'V'],[4,'IV'],[1,'I']];
+  let s = '';
+  for (const [v,r] of map) { while (n>=v) { s+=r; n-=v; } }
+  return s;
+}
+
+function pickDaily()  { const idx = dayNumber() % PASSAGES.length; return { passage: PASSAGES[idx], idx }; }
+function pickEndless() {
+  let idx = Math.floor(Math.random() * PASSAGES.length);
+  if (PASSAGES.length > 1 && idx === currentPassageIdx) idx = (idx + 1) % PASSAGES.length;
+  state.endless.pos++;
+  return { passage: PASSAGES[idx], idx };
+}
+
+// ============================================================
+// PASSAGE RENDERING
+// ============================================================
+
+function renderPassageBlanks() {
+  const el = document.getElementById('passage-text');
+  el.innerHTML = '';
+  const parts = currentPassage.template.split('___');
+  parts.forEach((part, i) => {
+    el.appendChild(document.createTextNode(part));
+    if (i < parts.length - 1) {
+      const blank = document.createElement('span');
+      blank.className = 'blank';
+      // Mark the first blank as the "scored" one visually (slightly thicker)
+      if (i === 0) blank.classList.add('scored');
+      blank.dataset.blankIndex = i;
+      el.appendChild(blank);
+    }
+  });
+  document.getElementById('passage-corner').textContent =
+    currentPassage.verified ? 'verified · public domain' : 'candidate · pre-verification';
+}
+
+function fillPassageBlanks(word, options = {}) {
+  // options: { wrong: bool }  — if true, render with strike-through
+  const blanks = document.querySelectorAll('#passage-text .blank');
+  blanks.forEach(b => {
+    b.classList.add('filled');
+    b.classList.add('canonical');
+    b.classList.remove('scored');
+    b.textContent = word;
+  });
+}
+
+function renderSubhead() {
+  const issue = romanise(120 + dayNumber() % 365);
+  document.getElementById('strap-issue').textContent = 'No. ' + issue;
+  document.getElementById('subhead-left').textContent =
+    mode === 'daily' ? ('Daily · No. ' + issue) : 'Endless · practice';
+  document.getElementById('streak-num').textContent = state.streak;
+  document.getElementById('streak-pb').textContent  = state.pb;
+  document.getElementById('streak-num').classList.toggle('hot', state.streak >= 5);
+}
+
+// ============================================================
+// COMMIT & REVEAL
+// ============================================================
+
+function commit() {
+  const input = document.getElementById('reading-input');
+  const userAnswer = input.value.trim();
+  if (!userAnswer) return;
+
+  lastUserAnswer = userAnswer;
+  const score = scoreReading(userAnswer, currentPassage);
+  lastScore = score;
+  phase = 'committed';
+
+  // Hide input + commit; reveal will show
+  document.getElementById('input-wrap').style.display = 'none';
+  document.getElementById('commit-btn').style.display = 'none';
+
+  // Fill the passage blanks with canonical answer (multi-blank reveal moment)
+  fillPassageBlanks(currentPassage.answer);
+
+  // Update streak / state
+  if (mode === 'daily') {
+    if (score.stars >= 2) {
+      state.streak += 1;
+      if (state.streak > state.pb) state.pb = state.streak;
+    } else {
+      state.streak = 0;
+    }
+    state.daily = {
+      dateKey: todayKey(),
+      dayNum: dayNumber(),
+      status: 'played',
+      guess: userAnswer,
+      answer: currentPassage.answer,
+      stars: score.stars,
+      passageIdx: currentPassageIdx,
+    };
+    saveState();
+  } else {
+    state.endless.runStars.push(score.stars);
+    if (score.stars >= 2) state.streak += 1;
+    else state.streak = 0;
+    if (state.streak > state.pb) state.pb = state.streak;
+    saveState();
+  }
+
+  renderReveal(userAnswer, score);
+  renderSubhead();
+  phase = 'revealed';
+}
+
+function renderReveal(userAnswer, score) {
+  const reveal = document.getElementById('reveal');
+  reveal.classList.add('show');
+  reveal.style.animation = 'none';
+  void reveal.offsetHeight;
+  reveal.style.animation = '';
+
+  const yourEl = document.getElementById('rev-your');
+  if (userAnswer) {
+    yourEl.textContent = userAnswer;
+    yourEl.classList.remove('empty');
+  } else {
+    yourEl.textContent = 'no reading';
+    yourEl.classList.add('empty');
+  }
+  document.getElementById('rev-actual').textContent = currentPassage.answer;
+
+  // Distance phrase
+  let distPhrase;
+  if (score.tier === 'exact') {
+    distPhrase = `<em>the very word.</em>`;
+  } else if (score.tier === 'close') {
+    distPhrase = `<em>the right sense, close to the original.</em>`;
+  } else if (score.tier === 'near') {
+    distPhrase = `<em>in the neighbourhood — but the writer chose another word.</em>`;
+  } else if (score.tier === 'miss') {
+    distPhrase = `<em>another reading. the original is shown above.</em>`;
+  } else {
+    distPhrase = `<em>no word supplied.</em>`;
+  }
+  document.getElementById('rev-distance').innerHTML = distPhrase;
+
+  // Stars
+  const starsEl = document.getElementById('rev-star-glyphs');
+  const starsContainer = document.getElementById('rev-stars');
+  starsContainer.classList.toggle('miss', score.stars === 0);
+  if (score.stars === 0) {
+    starsEl.innerHTML = '— — —';
+  } else {
+    let s = '';
+    for (let i = 0; i < 4; i++) {
+      s += i < score.stars ? '★' : '<span class="empty">★</span>';
+    }
+    starsEl.innerHTML = s;
+  }
+  document.getElementById('rev-caption').textContent = score.caption;
+
+  // Source & footnote
+  document.getElementById('rev-source').innerHTML =
+    `<span class="work">${currentPassage.work}</span> · ${currentPassage.author} · ${currentPassage.year}`;
+  document.getElementById('rev-url').href = currentPassage.url;
+  document.getElementById('rev-footnote').textContent = currentPassage.footnote;
+}
+
+// ============================================================
+// SHARE
+// ============================================================
+
+function buildShareGrid(score) {
+  const issue = 'No. ' + romanise(120 + dayNumber() % 365);
+  let stars;
+  if (score.stars === 0) stars = '—';
+  else stars = '★'.repeat(score.stars) + '☆'.repeat(4 - score.stars);
+  return [
+    `The Standing Page · ${issue}`,
+    `Plate I — The Reading   ${stars}`,
+    `thestandingpage.com`,
+  ].join('\n');
+}
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1400);
+}
+
+// ============================================================
+// SESSION FLOW
+// ============================================================
+
+function switchMode(newMode) {
+  if (newMode === mode) return;
+  mode = newMode;
+  document.querySelectorAll('.mode-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.mode === mode);
+  });
+  document.getElementById('footer-rule').textContent =
+    (mode === 'daily')
+      ? 'one passage · everyone reads it · a fresh reading at midnight'
+      : 'a different passage each round · no streak across modes';
+  startRound();
+}
+
+function startRound() {
+  phase = 'fresh';
+  document.getElementById('reveal').classList.remove('show');
+  document.getElementById('input-wrap').style.display = '';
+  document.getElementById('commit-btn').style.display = '';
+  document.getElementById('commit-btn').disabled = true;
+
+  const input = document.getElementById('reading-input');
+  input.value = '';
+  input.disabled = false;
+
+  // Daily lockout check
+  if (mode === 'daily' && state.daily && state.daily.dateKey === todayKey() && state.daily.status === 'played') {
+    const sIdx = state.daily.passageIdx ?? (dayNumber() % PASSAGES.length);
+    currentPassage = PASSAGES[sIdx];
+    currentPassageIdx = sIdx;
+    renderPassageBlanks();
+    fillPassageBlanks(currentPassage.answer);
+    const distance = state.daily.guess === state.daily.answer ? 0 : null;
+    const score = scoreReading(state.daily.guess, currentPassage);
+    document.getElementById('input-wrap').style.display = 'none';
+    document.getElementById('commit-btn').style.display = 'none';
+    renderReveal(state.daily.guess, score);
+    phase = 'revealed';
+    document.getElementById('btn-next').textContent = 'Tomorrow';
+    document.getElementById('btn-next').disabled = true;
+    document.getElementById('btn-next').style.opacity = 0.4;
+    renderSubhead();
+    return;
+  }
+
+  // Pick passage
+  const pick = mode === 'daily' ? pickDaily() : pickEndless();
+  currentPassage = pick.passage;
+  currentPassageIdx = pick.idx;
+
+  document.getElementById('btn-next').textContent = mode === 'daily' ? 'Tomorrow' : 'Another';
+  document.getElementById('btn-next').disabled = false;
+  document.getElementById('btn-next').style.opacity = '';
+
+  renderPassageBlanks();
+  renderSubhead();
+
+  // Defer focus a beat to avoid jank on mobile
+  setTimeout(() => { try { input.focus(); } catch(e){} }, 80);
+}
+
+// ============================================================
+// EVENTS
+// ============================================================
+
+document.getElementById('tab-daily').addEventListener('click', () => switchMode('daily'));
+document.getElementById('tab-endless').addEventListener('click', () => switchMode('endless'));
+
+document.getElementById('reading-input').addEventListener('input', e => {
+  const val = e.target.value.trim();
+  document.getElementById('commit-btn').disabled = !val;
+  document.getElementById('input-helper').textContent = val ? 'press enter or commit' : 'tap to type';
+});
+document.getElementById('reading-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !document.getElementById('commit-btn').disabled) {
+    e.preventDefault();
+    commit();
+  }
+});
+
+document.getElementById('commit-btn').addEventListener('click', commit);
+
+document.getElementById('btn-share').addEventListener('click', async () => {
+  const grid = buildShareGrid(lastScore || scoreReading(lastUserAnswer, currentPassage));
+  try {
+    if (navigator.share) await navigator.share({ text: grid });
+    else { await navigator.clipboard.writeText(grid); showToast('grid copied'); }
+  } catch (e) {
+    try { await navigator.clipboard.writeText(grid); showToast('grid copied'); } catch(_){}
+  }
+});
+
+document.getElementById('btn-next').addEventListener('click', () => {
+  if (mode === 'daily') { showToast('back tomorrow'); return; }
+  startRound();
+});
+
+document.getElementById('btn-dev').addEventListener('click', () => {
+  if (!confirm('DEV: reset all Plate I state?')) return;
+  localStorage.removeItem(STORAGE_KEY);
+  state = loadState();
+  startRound();
+  showToast('reset');
+});
+
+// ============================================================
+// BOOT
+// ============================================================
+
+renderSubhead();
+startRound();
+
+</script>
+
+</body>
+</html>
